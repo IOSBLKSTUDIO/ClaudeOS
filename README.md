@@ -1,73 +1,165 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React 18" />
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white" alt="TypeScript 5" />
+  <img src="https://img.shields.io/badge/Vite-7-646CFF?logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss&logoColor=white" alt="TailwindCSS" />
+  <img src="https://img.shields.io/badge/Framer_Motion-11-FF0055?logo=framer&logoColor=white" alt="Framer Motion" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">ClaudeOS</h1>
 
-Currently, two official plugins are available:
+<p align="center">
+  <strong>Un systeme d'exploitation web inspire de macOS</strong><br>
+  <em>A macOS-inspired web operating system</em>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<p align="center">
+  <a href="https://iosblkstudio.github.io/ClaudeOS/">Essayer en ligne / Try it live</a>
+</p>
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Francais
 
-## Expanding the ESLint configuration
+### Presentation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+ClaudeOS est une webapp qui reproduit fidelement l'experience macOS directement dans votre navigateur. Avec son interface fluide, ses animations soignees et ses applications integrees, ClaudeOS offre une experience immersive et interactive.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+**Mot de passe : `0000`**
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Fonctionnalites
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Composant | Description |
+|-----------|-------------|
+| **Desktop** | Fond d'ecran personnalisable, icones sur le bureau |
+| **Dock** | Effet de grossissement au survol, indicateurs d'apps ouvertes |
+| **Barre de menu** | Menu Apple, menus dynamiques par app, horloge, date |
+| **Fenetres** | Glisser-deposer, redimensionnement, boutons rouge/jaune/vert |
+| **Spotlight** | Recherche globale (Cmd+Space ou clic sur l'icone) |
+
+### Applications incluses
+
+| App | Fonctionnalites |
+|-----|-----------------|
+| **Finder** | Navigateur de fichiers avec barre laterale et vues grille/liste |
+| **Terminal** | Emulateur avec commandes (ls, cd, cat, clear, help, etc.) |
+| **Notes** | Editeur de texte riche avec sauvegarde automatique |
+| **Calculatrice** | Calculatrice standard avec historique |
+| **Reglages** | Personnalisation (fond d'ecran, dock, langue FR/EN) |
+| **Safari** | Navigateur web integre avec onglets |
+| **Musique** | Lecteur audio avec playlist et visualisation |
+| **Photos** | Galerie photo avec vues hero, grille et liste |
+| **Snake** | Jeu Snake avec mode murs invisibles et sons |
+
+### Installation locale
+
+```bash
+# Cloner le repo
+git clone https://github.com/IOSBLKSTUDIO/ClaudeOS.git
+cd ClaudeOS
+
+# Installer les dependances
+npm install
+
+# Lancer en mode developpement
+npm run dev
+
+# Construire pour la production
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Contribuer
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Les contributions sont les bienvenues ! Voici comment proceder :
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Fork** ce repository
+2. Creez une branche pour votre fonctionnalite (`git checkout -b feature/ma-fonctionnalite`)
+3. Commitez vos changements (`git commit -m 'Ajout de ma fonctionnalite'`)
+4. Poussez vers la branche (`git push origin feature/ma-fonctionnalite`)
+5. Ouvrez une **Pull Request**
+
+> **Note** : Toutes les Pull Requests necessitent une approbation avant d'etre fusionnees.
+
+---
+
+## English
+
+### Overview
+
+ClaudeOS is a web application that faithfully recreates the macOS experience directly in your browser. With its fluid interface, polished animations, and integrated applications, ClaudeOS offers an immersive and interactive experience.
+
+**Password: `0000`**
+
+### Features
+
+| Component | Description |
+|-----------|-------------|
+| **Desktop** | Customizable wallpaper, desktop icons |
+| **Dock** | Magnification effect on hover, running app indicators |
+| **Menu Bar** | Apple menu, dynamic app menus, clock, date |
+| **Windows** | Drag & drop, resizing, red/yellow/green buttons |
+| **Spotlight** | Global search (Cmd+Space or click the icon) |
+
+### Included Applications
+
+| App | Features |
+|-----|----------|
+| **Finder** | File browser with sidebar and grid/list views |
+| **Terminal** | Emulator with commands (ls, cd, cat, clear, help, etc.) |
+| **Notes** | Rich text editor with auto-save |
+| **Calculator** | Standard calculator with history |
+| **Settings** | Customization (wallpaper, dock, language FR/EN) |
+| **Safari** | Built-in web browser with tabs |
+| **Music** | Audio player with playlist and visualization |
+| **Photos** | Photo gallery with hero, grid and list views |
+| **Snake** | Snake game with invisible walls mode and sounds |
+
+### Local Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/IOSBLKSTUDIO/ClaudeOS.git
+cd ClaudeOS
+
+# Install dependencies
+npm install
+
+# Run in development mode
+npm run dev
+
+# Build for production
+npm run build
 ```
+
+### Contributing
+
+Contributions are welcome! Here's how to proceed:
+
+1. **Fork** this repository
+2. Create a branch for your feature (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m 'Add my feature'`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a **Pull Request**
+
+> **Note**: All Pull Requests require approval before being merged.
+
+---
+
+## Tech Stack
+
+- **React 18** - UI Framework
+- **TypeScript 5** - Type safety
+- **Vite 7** - Build tool & dev server
+- **TailwindCSS 4** - Utility-first CSS
+- **Framer Motion 11** - Animations
+- **Zustand** - State management
+
+## License
+
+MIT License - Feel free to use, modify and distribute.
+
+---
+
+<p align="center">
+  Made with Claude Code by <a href="https://github.com/IOSBLKSTUDIO">@IOSBLKSTUDIO</a>
+</p>
