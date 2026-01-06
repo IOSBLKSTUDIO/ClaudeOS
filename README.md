@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <a href="https://patreon.com/IOSBLKSTUDIO">
+  <a href="https://patreon.com/LePtitDev">
     <img src="https://img.shields.io/badge/Support_on-Patreon-FF424D?logo=patreon&logoColor=white&style=for-the-badge" alt="Support on Patreon" />
   </a>
 </p>
@@ -167,7 +167,7 @@ Si vous aimez ClaudeOS, vous pouvez soutenir son developpement :
 If you like ClaudeOS, you can support its development:
 
 <p align="center">
-  <a href="https://patreon.com/IOSBLKSTUDIO">
+  <a href="https://patreon.com/LePtitDev">
     <img src="https://img.shields.io/badge/Become_a_Patron-FF424D?logo=patreon&logoColor=white&style=for-the-badge" alt="Become a Patron" />
   </a>
 </p>
@@ -180,5 +180,5 @@ MIT License - Feel free to use, modify and distribute.
 
 <p align="center">
   Made with Claude Code by <a href="https://github.com/IOSBLKSTUDIO">@IOSBLKSTUDIO</a><br>
-  <a href="https://patreon.com/IOSBLKSTUDIO">Support on Patreon</a>
+  <a href="https://patreon.com/LePtitDev">Support on Patreon</a>
 </p>
