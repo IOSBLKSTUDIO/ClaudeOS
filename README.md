@@ -17,6 +17,12 @@
   <a href="https://iosblkstudio.github.io/ClaudeOS/">Essayer en ligne / Try it live</a>
 </p>
 
+<p align="center">
+  <a href="https://patreon.com/IOSBLKSTUDIO">
+    <img src="https://img.shields.io/badge/Support_on-Patreon-FF424D?logo=patreon&logoColor=white&style=for-the-badge" alt="Support on Patreon" />
+  </a>
+</p>
+
 ---
 
 ## Francais
@@ -154,6 +160,18 @@ Contributions are welcome! Here's how to proceed:
 - **Framer Motion 11** - Animations
 - **Zustand** - State management
 
+## Support the Project / Soutenir le projet
+
+Si vous aimez ClaudeOS, vous pouvez soutenir son developpement :
+
+If you like ClaudeOS, you can support its development:
+
+<p align="center">
+  <a href="https://patreon.com/IOSBLKSTUDIO">
+    <img src="https://img.shields.io/badge/Become_a_Patron-FF424D?logo=patreon&logoColor=white&style=for-the-badge" alt="Become a Patron" />
+  </a>
+</p>
+
 ## License
 
 MIT License - Feel free to use, modify and distribute.
@@ -161,5 +179,6 @@ MIT License - Feel free to use, modify and distribute.
 ---
 
 <p align="center">
-  Made with Claude Code by <a href="https://github.com/IOSBLKSTUDIO">@IOSBLKSTUDIO</a>
+  Made with Claude Code by <a href="https://github.com/IOSBLKSTUDIO">@IOSBLKSTUDIO</a><br>
+  <a href="https://patreon.com/IOSBLKSTUDIO">Support on Patreon</a>
 </p>
