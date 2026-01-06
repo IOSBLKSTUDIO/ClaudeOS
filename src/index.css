@@ -1,0 +1,321 @@
+@import "tailwindcss";
+
+:root {
+  --menubar-height: 28px;
+  --dock-height: 70px;
+  --dock-item-size: 52px;
+  --window-border-radius: 12px;
+
+  /* macOS Sonoma Colors */
+  --color-accent: #0a84ff;
+  --color-accent-hover: #409cff;
+  --color-red: #ff453a;
+  --color-yellow: #ffd60a;
+  --color-green: #32d74b;
+  --color-gray-900: #1d1d1f;
+  --color-gray-800: #2c2c2e;
+  --color-gray-700: #3a3a3c;
+  --color-gray-600: #48484a;
+  --color-gray-500: #636366;
+  --color-gray-400: #8e8e93;
+  --color-gray-300: #aeaeb2;
+  --color-gray-200: #c7c7cc;
+  --color-gray-100: #e5e5ea;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern';
+}
+
+/* Prevent text selection globally except in inputs */
+body {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+input, textarea, [contenteditable="true"] {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* macOS-style scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+.glass-dark {
+  background: rgba(30, 30, 30, 0.75);
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+}
+
+.glass-menu {
+  background: rgba(40, 40, 40, 0.85);
+  backdrop-filter: blur(80px) saturate(200%);
+  -webkit-backdrop-filter: blur(80px) saturate(200%);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-window {
+  background: rgba(36, 36, 38, 0.92);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+.glass-dock {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(50px) saturate(180%);
+  -webkit-backdrop-filter: blur(50px) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.3),
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Window shadows */
+.window-shadow {
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.12),
+    0 22px 70px rgba(0, 0, 0, 0.55),
+    0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.window-shadow-inactive {
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.1),
+    0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Text selection */
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.4);
+}
+
+/* Smooth transitions */
+.transition-gpu {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Icon container with shadow */
+.icon-shadow {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+}
+
+/* Traffic light buttons */
+.traffic-light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.traffic-light svg {
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.traffic-lights:hover .traffic-light svg {
+  opacity: 1;
+}
+
+.traffic-close {
+  background: linear-gradient(180deg, #ff6058 0%, #e8453c 100%);
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+}
+
+.traffic-minimize {
+  background: linear-gradient(180deg, #ffbd2e 0%, #dea123 100%);
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+}
+
+.traffic-maximize {
+  background: linear-gradient(180deg, #28c940 0%, #1aab29 100%);
+  border: 0.5px solid rgba(0, 0, 0, 0.12);
+}
+
+.traffic-inactive {
+  background: linear-gradient(180deg, #3a3a3c 0%, #2c2c2e 100%) !important;
+  border: 0.5px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Animations */
+@keyframes windowOpen {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes windowClose {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes dockBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-window-open {
+  animation: windowOpen 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-dock-bounce {
+  animation: dockBounce 0.5s ease-in-out 3;
+}
+
+/* Custom macOS-style cursor */
+.macos-cursor {
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><defs><filter id="shadow" x="-20%25" y="-20%25" width="140%25" height="140%25"><feDropShadow dx="1" dy="1" stdDeviation="1" flood-opacity="0.3"/></filter></defs><path fill="%23000" filter="url(%23shadow)" d="M5.5 3.21V20.8l4.86-4.86h6.78L5.5 3.21z"/><path fill="%23fff" d="M6.5 5.5v12.28l3.64-3.64h4.86L6.5 5.5z"/></svg>') 4 2, auto;
+}
+
+.macos-cursor * {
+  cursor: inherit;
+}
+
+/* Pointer cursor for interactive elements - clean hand pointer */
+.macos-cursor button,
+.macos-cursor a,
+.macos-cursor [role="button"],
+.macos-cursor input[type="submit"],
+.macos-cursor input[type="button"],
+.macos-cursor .cursor-pointer {
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><defs><filter id="s" x="-20%25" y="-20%25" width="140%25" height="140%25"><feDropShadow dx="0.5" dy="0.5" stdDeviation="0.5" flood-opacity="0.3"/></filter></defs><g filter="url(%23s)"><path fill="%23fff" stroke="%23000" stroke-width="0.8" d="M6.5 2.5v7h-1c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h1v2c0 1.1.9 2 2 2h5c1.1 0 2-.9 2-2v-5c0-.55-.45-1-1-1h-1v-1c0-.55-.45-1-1-1h-1v-1c0-.55-.45-1-1-1h-1v-2c0-.55-.45-1-1-1s-1 .45-1 1z"/></g></svg>') 7 2, pointer;
+}
+
+/* Text cursor for inputs */
+.macos-cursor input[type="text"],
+.macos-cursor input[type="password"],
+.macos-cursor input[type="email"],
+.macos-cursor input[type="search"],
+.macos-cursor textarea,
+.macos-cursor [contenteditable="true"] {
+  cursor: text;
+}
+
+/* Resize cursors */
+.macos-cursor .cursor-se-resize {
+  cursor: se-resize;
+}
+
+.macos-cursor .cursor-move {
+  cursor: move;
+}
+
+/* Hide password manager icons and overlays */
+input::-webkit-credentials-auto-fill-button,
+input::-webkit-contacts-auto-fill-button,
+input::-webkit-credit-card-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+/* Hide LastPass */
+[data-lastpass-icon-root],
+[data-lastpass-root],
+div[data-lastpass-icon-root] {
+  display: none !important;
+}
+
+/* Hide Bitwarden */
+[data-bwi-selector],
+.com-bitwarden-browser-input-icon,
+div[class*="bitwarden"] {
+  display: none !important;
+}
+
+/* Hide 1Password */
+[data-onepassword-wrapper],
+com-1password-button,
+[class*="onepassword"] {
+  display: none !important;
+}
+
+/* Hide Dashlane */
+[data-dashlane-rid],
+[data-dashlane-observed] {
+  background-image: none !important;
+}
+
+/* Hide Safari/Chrome password suggestions */
+input::-webkit-textfield-decoration-container {
+  visibility: hidden;
+  pointer-events: none;
+}
