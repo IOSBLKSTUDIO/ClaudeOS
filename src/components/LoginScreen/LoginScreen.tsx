@@ -218,7 +218,7 @@ export function LoginScreen({ onLogin }: LoginScreenProps) {
                 }}
               >
                 <img
-                  src="/profile.png"
+                  src={`${import.meta.env.BASE_URL}profile.png`}
                   alt="LePtitDev"
                   className="w-full h-full object-cover"
                 />
